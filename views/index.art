@@ -1,0 +1,179 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="refresh" content="10">
+    <title>DTube Status</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+</head>
+<body>
+    <center>
+        <table class='pure-table'>
+            <thead>
+                <th>Endpoint</th>
+                <th>Queue</th>
+                <th>Ini</th>
+                <th>Wai</th>
+                <th>Can</th>
+                <th>Sta</th>
+                <th>Err</th>
+                <th>Suc</th>
+            </thead>
+            <tbody>
+                {{each status json endpoint}}
+                    <tr>
+                        {{if json}}
+                            <td title="{{json.version}}" style='color: green'>
+                                {{endpoint}}
+                            </td>
+                            <td title="audioCpuToEncode: {{
+                                json.currentWaitingInQueue.audioCpuToEncode
+                            }}&#013;&#010;videoGpuToEncode: {{
+                                json.currentWaitingInQueue.videoGpuToEncode
+                            }}&#013;&#010;audioVideoCpuToEncode: {{
+                                json.currentWaitingInQueue.audioVideoCpuToEncode
+                            }}&#013;&#010;spriteToCreate: {{
+                                json.currentWaitingInQueue.spriteToCreate
+                            }}&#013;&#010;ipfsToAdd: {{
+                                json.currentWaitingInQueue.ipfsToAdd
+                            }}">
+                                {{
+                                    json.currentWaitingInQueue.audioCpuToEncode
+                                    + json.currentWaitingInQueue.videoGpuToEncode
+                                    + json.currentWaitingInQueue.audioVideoCpuToEncode
+                                    + json.currentWaitingInQueue.spriteToCreate
+                                    + json.currentWaitingInQueue.ipfsToAdd
+                                }}
+                            </td>
+                            <td title="audioCpuEncodeLast24h: {{
+                                json.init.audioCpuEncodeLast24h.nb
+                            }}&#013;&#010;videoGpuEncodeLast24h: {{
+                                json.init.videoGpuEncodeLast24h.nb
+                            }}&#013;&#010;audioVideoCpuEncodeLast24h: {{
+                                json.init.audioVideoCpuEncodeLast24h.nb
+                            }}&#013;&#010;spriteCreationLast24h: {{
+                                json.init.spriteCreationLast24h.nb
+                            }}&#013;&#010;ipfsAddLast24h: {{
+                                json.init.ipfsAddLast24h.nb
+                            }}">
+                                {{
+                                    json.init.audioCpuEncodeLast24h.nb
+                                    + json.init.videoGpuEncodeLast24h.nb
+                                    + json.init.audioVideoCpuEncodeLast24h.nb
+                                    + json.init.spriteCreationLast24h.nb
+                                    + json.init.ipfsAddLast24h.nb
+                                }}
+                            </td>
+                            <td title="audioCpuEncodeLast24h: {{
+                                json.waiting.audioCpuEncodeLast24h.nb
+                            }}&#013;&#010;videoGpuEncodeLast24h: {{
+                                json.waiting.videoGpuEncodeLast24h.nb
+                            }}&#013;&#010;audioVideoCpuEncodeLast24h: {{
+                                json.waiting.audioVideoCpuEncodeLast24h.nb
+                            }}&#013;&#010;spriteCreationLast24h: {{
+                                json.waiting.spriteCreationLast24h.nb
+                            }}&#013;&#010;ipfsAddLast24h: {{
+                                json.waiting.ipfsAddLast24h.nb
+                            }}">
+                                {{
+                                    json.waiting.audioCpuEncodeLast24h.nb
+                                    + json.waiting.videoGpuEncodeLast24h.nb
+                                    + json.waiting.audioVideoCpuEncodeLast24h.nb
+                                    + json.waiting.spriteCreationLast24h.nb
+                                    + json.waiting.ipfsAddLast24h.nb
+                                }}
+                            </td>
+                            <td title="audioCpuEncodeLast24h: {{
+                                json.canceled.audioCpuEncodeLast24h.nb
+                            }}&#013;&#010;videoGpuEncodeLast24h: {{
+                                json.canceled.videoGpuEncodeLast24h.nb
+                            }}&#013;&#010;audioVideoCpuEncodeLast24h: {{
+                                json.canceled.audioVideoCpuEncodeLast24h.nb
+                            }}&#013;&#010;spriteCreationLast24h: {{
+                                json.canceled.spriteCreationLast24h.nb
+                            }}&#013;&#010;ipfsAddLast24h: {{
+                                json.canceled.ipfsAddLast24h.nb
+                            }}">
+                                {{
+                                    json.canceled.audioCpuEncodeLast24h.nb
+                                    + json.canceled.videoGpuEncodeLast24h.nb
+                                    + json.canceled.audioVideoCpuEncodeLast24h.nb
+                                    + json.canceled.spriteCreationLast24h.nb
+                                    + json.canceled.ipfsAddLast24h.nb
+                                }}
+                            </td>
+                            <td title="audioCpuEncodeLast24h: {{
+                                json.started.audioCpuEncodeLast24h.nb
+                            }}&#013;&#010;videoGpuEncodeLast24h: {{
+                                json.started.videoGpuEncodeLast24h.nb
+                            }}&#013;&#010;audioVideoCpuEncodeLast24h: {{
+                                json.started.audioVideoCpuEncodeLast24h.nb
+                            }}&#013;&#010;spriteCreationLast24h: {{
+                                json.started.spriteCreationLast24h.nb
+                            }}&#013;&#010;ipfsAddLast24h: {{
+                                json.started.ipfsAddLast24h.nb
+                            }}">
+                                {{
+                                    json.started.audioCpuEncodeLast24h.nb
+                                    + json.started.videoGpuEncodeLast24h.nb
+                                    + json.started.audioVideoCpuEncodeLast24h.nb
+                                    + json.started.spriteCreationLast24h.nb
+                                    + json.started.ipfsAddLast24h.nb
+                                }}
+                            </td>
+                            <td title="audioCpuEncodeLast24h: {{
+                                json.error.audioCpuEncodeLast24h.nb
+                            }}&#013;&#010;videoGpuEncodeLast24h: {{
+                                json.error.videoGpuEncodeLast24h.nb
+                            }}&#013;&#010;audioVideoCpuEncodeLast24h: {{
+                                json.error.audioVideoCpuEncodeLast24h.nb
+                            }}&#013;&#010;spriteCreationLast24h: {{
+                                json.error.spriteCreationLast24h.nb
+                            }}&#013;&#010;ipfsAddLast24h: {{
+                                json.error.ipfsAddLast24h.nb
+                            }}">
+                                {{
+                                    json.error.audioCpuEncodeLast24h.nb
+                                    + json.error.videoGpuEncodeLast24h.nb
+                                    + json.error.audioVideoCpuEncodeLast24h.nb
+                                    + json.error.spriteCreationLast24h.nb
+                                    + json.error.ipfsAddLast24h.nb
+                                }}
+                            </td>
+                            <td title="audioCpuEncodeLast24h: {{
+                                json.success.audioCpuEncodeLast24h.nb
+                            }}&#013;&#010;videoGpuEncodeLast24h: {{
+                                json.success.videoGpuEncodeLast24h.nb
+                            }}&#013;&#010;audioVideoCpuEncodeLast24h: {{
+                                json.success.audioVideoCpuEncodeLast24h.nb
+                            }}&#013;&#010;spriteCreationLast24h: {{
+                                json.success.spriteCreationLast24h.nb
+                            }}&#013;&#010;ipfsAddLast24h: {{
+                                json.success.ipfsAddLast24h.nb
+                            }}">
+                                {{
+                                    json.success.audioCpuEncodeLast24h.nb
+                                    + json.success.videoGpuEncodeLast24h.nb
+                                    + json.success.audioVideoCpuEncodeLast24h.nb
+                                    + json.success.spriteCreationLast24h.nb
+                                    + json.success.ipfsAddLast24h.nb
+                                }}
+                            </td>
+                        {{else}}
+                            <td title="Offline" style='color: red'>
+                                {{endpoint}}
+                            </td>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                            <td>X</td>
+                        {{/if}}
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </center>
+</body>
+</html>
