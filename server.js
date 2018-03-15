@@ -9,7 +9,7 @@ app.set('view options', {
 
 let status = {}
 let endpoints = [
-    'snap1.d.tube',
+//    'snap1.d.tube',
     'upldr1.d.tube',
     'upldr2.d.tube',
     'upldr3.d.tube',
@@ -33,7 +33,8 @@ function getStatus(endpoint) {
     p('https://'+endpoint+'/getStatus?details=true', (err, res) => {
         if (!err) {
             try {
-                status[endpoint] = JSON.parse(res.body)
+                text = res.body.toString('utf8').replace(/null/g, '{"nb":0}')
+                status[endpoint] = JSON.parse(text)
             } catch(e) {
                 status[endpoint] = null
             }
@@ -47,4 +48,4 @@ function getAllStatus() {
         getStatus(endpoints[i])
 }
 
-setInterval(getAllStatus, 10000)
+setInterval(getAllStatus, 1000)
